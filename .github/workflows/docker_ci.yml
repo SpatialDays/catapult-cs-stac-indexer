@@ -1,16 +1,12 @@
-
 name: CI to Docker hub
 
 on:
   push:
-    branches: [ main ]
-    paths-ignore:
-      - "**.md"
-      - "**.md.gotmpl"
-      - ".github/**"
+    branches: ["main","master"]
 
 jobs:
   main:
+    environment: DOCKERHUB_ENVIRONMENT
     runs-on: ubuntu-latest
     steps:
       - name: Check Out Repo
@@ -37,7 +33,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: satapps/cs-stac-indexer:${{ steps.sha.outputs.sha_short }}
+          tags: ivicamaticsd/catapult-cs-stac-indexer:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
