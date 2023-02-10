@@ -1,3 +1,0 @@
-[submodule "docker/datacube_dev/odc-hub"]
-	path = docker/datacube_dev/odc-hub
-	url = https://github.com/SatelliteApplicationsCatapult/odc-hub.git

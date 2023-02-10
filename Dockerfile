@@ -16,6 +16,7 @@ RUN pip install --extra-index-url="https://packages.dea.ga.gov.au" odc-index
 # ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
 # RUN chmod +x /wait
 WORKDIR /src
+ENV PYTHONDONTWRITEBYTECODE=1
 RUN python3 setup.py install
 CMD datacube system init && python3 -m stac_to_dc.entrypoints.nats_consumer
 
