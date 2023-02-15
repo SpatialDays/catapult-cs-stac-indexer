@@ -5,7 +5,7 @@ from stac_to_dc.adapters.repository import S3Repository
 from stac_to_dc.config import LOG_LEVEL, LOG_FORMAT, get_s3_configuration
 from stac_to_dc.domain.operations import get_product_metadata_from_collection, item_to_dataset
 from stac_to_dc.domain.s3 import NoObjectError
-from stac_to_dc.util import get_rel_links, parse_s3_url, get_key_from_url
+from stac_to_dc.util import get_rel_links, get_key_from_url
 
 logging.basicConfig(level=LOG_LEVEL, format=LOG_FORMAT)
 logger = logging.getLogger(__name__)
@@ -36,7 +36,8 @@ def index_product_definition(dc_index: Index, repo: S3Repository, collection_key
 
 def index_dataset(dc_index: Index, repo: S3Repository, item_key: str):
     try:
-        item_dict = repo.get_dict(bucket=S3_BUCKET, key=item_key)
+        item_key_to_obtain = "/".join(item_key.split('/')[1:])
+        item_dict = repo.get_dict(bucket=S3_BUCKET, key=item_key_to_obtain)
         product_name = item_key.split('/')[-3]
 
         dataset = item_to_dataset(
