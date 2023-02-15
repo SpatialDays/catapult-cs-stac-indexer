@@ -10,11 +10,11 @@ FROM python:3.8
 # COPY src/ /src/
 # RUN pip install --upgrade pip
 # RUN apt-get update && apt-get install -y build-essential git
-COPY . .
 RUN pip install --extra-index-url="https://packages.dea.ga.gov.au" odc-index
 # RUN python /src/setup.py install
 # ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
 # RUN chmod +x /wait
+COPY . .
 WORKDIR /src
 ENV PYTHONDONTWRITEBYTECODE=1
 RUN python3 setup.py install
