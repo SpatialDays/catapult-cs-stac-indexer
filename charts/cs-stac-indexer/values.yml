@@ -19,7 +19,7 @@ s3:
 db:
   # fill with flexible postgresql values
   hostname: ""
-  username: ""
-  password: ""
-  database: ""
-  port: ""
+  username: "postgres"
+  password: "postgres"
+  database: "datacube"
+  port: "5432"
