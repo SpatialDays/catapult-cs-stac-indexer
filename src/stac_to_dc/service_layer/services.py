@@ -36,7 +36,7 @@ def index_product_definition(dc_index: Index, repo: S3Repository, collection_key
 
 def index_dataset(dc_index: Index, repo: S3Repository, item_key: str):
     try:
-        item_key_to_obtain = "/".join(item_key.split('/')[1:])
+        item_key_to_obtain = "/".join(item_key.split('/'))
         item_dict = repo.get_dict(bucket=S3_BUCKET, key=item_key_to_obtain)
         product_name = item_key.split('/')[-3]
 
