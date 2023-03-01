@@ -27,6 +27,7 @@ def index_product_definition(dc_index: Index, repo: S3Repository, collection_key
         logging.info(f"item_links: {item_links}")
         for item_href in item_links:
             item_key = get_key_from_url(item_href)
+            item_key = "/".join(item_key.split('/')[1:])
             logging.info(f"item_key: {item_key}")
             index_dataset(dc_index, repo, item_key)
 
