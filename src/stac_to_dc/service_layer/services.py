@@ -27,6 +27,7 @@ def index_product_definition(dc_index: Index, repo: S3Repository, collection_key
         logging.info(f"item_links: {item_links}")
         for item_href in item_links:
             item_key = get_key_from_url(item_href)
+            item_key = "/".join(item_key.split('/')[1:])
             logging.info(f"item_key: {item_key}")
             index_dataset(dc_index, repo, item_key)
 
@@ -36,7 +37,7 @@ def index_product_definition(dc_index: Index, repo: S3Repository, collection_key
 
 def index_dataset(dc_index: Index, repo: S3Repository, item_key: str):
     try:
-        item_key_to_obtain = "/".join(item_key.split('/')[1:])
+        item_key_to_obtain = "/".join(item_key.split('/'))
         item_dict = repo.get_dict(bucket=S3_BUCKET, key=item_key_to_obtain)
         product_name = item_key.split('/')[-3]
 

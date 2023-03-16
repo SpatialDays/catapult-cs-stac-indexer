@@ -1,11 +1,13 @@
 image:
   repository: ivicamaticsd/catapult-cs-stac-indexer
-  tag: latest
+  tag: dev
   pullPolicy: Always
 
 nats:
-    host: "nats"
+    host: "ha-nats"
     port: 4222
+    itemChannel: "stac_indexer.item"
+    collectionChannel: "stac_indexer.collection"
 
 s3:
     accessKeyId: "not-needed-s3-proxy"
