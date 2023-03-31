@@ -7,18 +7,17 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     environment:
-      - DB_HOSTNAME=
-      - DB_USERNAME=
-      - DB_PASSWORD=
-      - DB_DATABASE=
-      - DB_PORT=5432
-      - NATS_HOST=
-      - NATS_PORT=
-      - AWS_ACCESS_KEY_ID=
-      - AWS_SECRET_ACCESS_KEY=
-      - AWS_DEFAULT_REGION=
-      - S3_ENDPOINT=
-      - S3_BUCKET=
-      - S3_BUCKET=ard-test-bucket-sd
+      - DB_HOSTNAME=localhost
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
+      - DB_DATABASE=datacube
+      - DB_PORT=30002
+      - REDIS_HOST=localhost
+      - REDIS_PORT=30000
+      - AWS_ACCESS_KEY_ID=not-needed
+      - AWS_SECRET_ACCESS_KEY=not-needed
+      - AWS_DEFAULT_REGION=eu-west-2
+      - S3_ENDPOINT=http://localhost:30003
+      - S3_BUCKET=ard-bucket
       - S3_IMAGERY_PATH=common_sensing
-      - S3_STAC_PATH=stac_catalogs2/cs_stac
+      - S3_STAC_PATH=stac_catalogs/cs_stac

@@ -14,6 +14,7 @@ RUN pip install --extra-index-url="https://packages.dea.ga.gov.au" odc-index
 # RUN python /src/setup.py install
 # ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait /wait
 # RUN chmod +x /wait
+RUN pip install redis
 COPY . .
 WORKDIR /src
 ENV PYTHONDONTWRITEBYTECODE=1
