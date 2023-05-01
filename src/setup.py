@@ -31,7 +31,7 @@ setup(
         "datacube-explorer",
         "eodatasets3 >= 0.17.0",
         "fiona",
-        "Flask==2.1.3",
+        "Flask==2.3.2",
         "Flask-Caching",
         "flask_themes2",
         "geoalchemy2",
